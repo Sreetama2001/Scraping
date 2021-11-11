@@ -123,13 +123,9 @@ class ndtv:
 finalData = pd.DataFrame()
 
 ndtv = ndtv()
-finalData = ndtv.getCatagoryNews("latest", "https://www.ndtv.com/latest")
-# for category in ndtv.newsCategories:
-#     df = ndtv.getCatagoryNews(category, ndtv.newsCategories[category])
-#     finalData = finalData.append(df, ignore_index=True)
-
-# df = scrap_page_and_fetch_news_data(
-#     category="latest", news_page_url=available_categories["latest"]
-# )
+# finalData = ndtv.getCatagoryNews("latest", "https://www.ndtv.com/latest")
+for category in ndtv.newsCategories:
+    df = ndtv.getCatagoryNews(category, ndtv.newsCategories[category])
+    finalData = finalData.append(df, ignore_index=True)
 
 finalData.to_csv("newResult.csv", index=False, header=True)
