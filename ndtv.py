@@ -119,13 +119,17 @@ class ndtv:
 
         return newsDf
 
+    def getNews(self):
+        allNews = pd.DataFrame()
+        for category in self.newsCategories:
+            df = self.getCatagoryNews(category, self.newsCategories[category])
+            allNews = allNews.append(df, ignore_index=True)
+        return allNews
+
 
 finalData = pd.DataFrame()
 
 ndtv = ndtv()
-# finalData = ndtv.getCatagoryNews("latest", "https://www.ndtv.com/latest")
-for category in ndtv.newsCategories:
-    df = ndtv.getCatagoryNews(category, ndtv.newsCategories[category])
-    finalData = finalData.append(df, ignore_index=True)
+finalData = ndtv.getNews()
 
-finalData.to_csv("newResult.csv", index=False, header=True)
+finalData.to_csv("result.csv", index=False, header=True)
