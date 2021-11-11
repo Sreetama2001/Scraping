@@ -97,9 +97,9 @@ def scrap_page_and_fetch_news_data(category, news_page_url):
     return news_df
 
 
-main_news_dataframe = pd.DataFrame(
-    columns=["category", "headline", "description", "url", "image_url", "posted_date"]
-)
+# main_news_dataframe = pd.DataFrame(
+#     columns=["category", "headline", "description", "url", "image_url", "posted_date"]
+# )
 
 # available_categories = {"latest": "https://www.ndtv.com/latest"}
 
